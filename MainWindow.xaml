@@ -1,0 +1,48 @@
+﻿<Window x:Class="WikiParser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WikiParser"
+        mc:Ignorable="d"
+        Title="WikiLinker" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="1.5*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="Put here your WIKIPEDIA link and press ADD LINK button" HorizontalAlignment="Center"/>
+                <TextBox Grid.Row="1" x:Name="ArticleBox" VerticalAlignment="Center"/>
+            </Grid>
+            <Button Grid.Column="1" Click="ChangeItems" Content="Add Link" VerticalAlignment="Stretch"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <TreeView x:Name="Article" TreeView.SelectedItemChanged="Articler" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                <TreeViewItem/>
+            </TreeView>
+
+            <WebBrowser Grid.Column="2" x:Name="CurrentPage" />
+            
+            <GridSplitter Grid.Column="1" Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
+
+        </Grid>
+    </Grid>
+</Window>
